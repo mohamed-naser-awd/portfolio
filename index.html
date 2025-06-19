@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-green-500 font-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mohamed Naser - Terminal Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .blinker {
+        animation: blink 1s step-start infinite;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="p-4">
+    <div id="terminal">
+      <div class="mb-4">
+        <p>Welcome to <span class="text-white">mohamednaser.com</span></p>
+        <p>Click a command to begin:</p>
+      </div>
+      
+      <div class="space-y-2">
+        <div class="cursor-pointer hover:text-white" onclick="showSection('about')">&gt; about</div>
+        <div class="cursor-pointer hover:text-white" onclick="showSection('projects')">&gt; projects</div>
+        <div class="cursor-pointer hover:text-white" onclick="showSection('contact')">&gt; contact</div>
+        <div class="cursor-pointer hover:text-white" onclick="showAll()">&gt; show all</div>
+        <div class="cursor-pointer hover:text-white" onclick="clearOutput()">&gt; clear</div>
+      </div>
+    </div>
+
+    <div id="output" class="mt-6 space-y-4"></div>
+
+    <script>
+      const output = document.getElementById('output');
+
+      const sections = {
+        about: `
+<span class="text-white">about</span>
+<pre class="text-sm">
+name: Mohamed Naser
+title: Backend Engineer
+description: >
+  I design and build scalable backend systems with a focus on performance, security,
+  and developer experience. I also enjoy crafting interactive frontend prototypes
+  and automating everything from CI to deployment.
+
+languages:
+  - Python
+  - JavaScript
+  - TypeScript
+  - Dart
+  - SQL
+  - Bash
+
+frameworks:
+  - Django
+  - FastAPI
+  - Celery
+  - Flask
+  - React
+  - Flutter
+
+databases:
+  - PostgreSQL
+  - MongoDB
+  - Redis
+  - SQLite
+
+tools:
+  - Docker
+  - Git
+  - NGINX
+  - RabbitMQ
+  - Kafka
+  - Linux
+  - S3
+
+cloud:
+  - AWS
+  - Oracle Cloud
+  - Heroku
+  - Netlify
+
+experience:
+  - company: Freelance / Startup Projects
+    role: Backend Engineer
+    period: 2020 - Present
+    description: >
+      Built multi-tenant eCommerce platforms, AI-powered signal analysis tools,
+      and real-time logging systems with RabbitMQ and Kafka.
+
+education:
+  - degree: Self-Taught
+    focus: Software Engineering & Machine Learning
+    extras: >
+      Strong interest in low-level systems, signal processing,
+      and building drones for defense use cases.
+</pre>
+        `,
+        projects: `
+<span class="text-white">projects</span>
+- monas.com — Multi-tenant e-commerce engine
+- SignalMap — Object detection with Wi-Fi signal modeling
+- DroneDefender — Smart defense system
+        `,
+        contact: `
+<span class="text-white">contact</span>
+Email: me@mohamednaser.com  
+GitHub: github.com/m0nas  
+LinkedIn: linkedin.com/in/mohamednaser
+        `
+      };
+
+      function showSection(name) {
+        output.innerHTML = `
+<div class="whitespace-pre-wrap">${sections[name]}</div>
+        `;
+      }
+
+      function showAll() {
+        output.innerHTML = Object.values(sections).map(
+          text => `<div class="whitespace-pre-wrap">${text}</div>`
+        ).join('');
+      }
+
+      function clearOutput() {
+        output.innerHTML = '';
+      }
+    </script>
+  </body>
+</html>
