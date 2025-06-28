@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohamed Naser | Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body class="bg-gray-900 text-white font-sans">
 
   <!-- Navbar -->
@@ -16,6 +18,7 @@
         <a href="#about" class="hover:text-blue-400">About</a>
         <a href="#projects" class="hover:text-blue-400">Projects</a>
         <a href="#contact" class="hover:text-blue-400">Contact</a>
+        <a href="/blog/index.html" class="hover:text-blue-400">Blog</a>
       </nav>
     </div>
   </header>
@@ -28,7 +31,8 @@
         Software Engineer • Backend Developer • Open Source Enthusiast
       </p>
       <div class="mt-6">
-        <a href="#projects" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition">
+        <a href="#projects"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition">
           View Projects
         </a>
       </div>
@@ -40,7 +44,8 @@
     <div class="max-w-4xl mx-auto px-4">
       <h3 class="text-3xl font-bold mb-6">About Me</h3>
       <p class="text-gray-300 text-lg">
-        I'm a backend developer with 4+ years of experience in Django, PostgreSQL, and scalable systems. I love building reliable APIs, architecting backend systems, and diving into performance optimization and DevOps workflows.
+        I'm a backend developer with 4+ years of experience in Django, PostgreSQL, and scalable systems. I love building
+        reliable APIs, architecting backend systems, and diving into performance optimization and DevOps workflows.
       </p>
     </div>
   </section>
@@ -50,14 +55,6 @@
     <div class="max-w-6xl mx-auto px-4">
       <h3 class="text-3xl font-bold mb-10">Projects</h3>
       <div class="grid gap-8 md:grid-cols-2">
-        <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">My eCommerce Platform</h4>
-          <p class="text-gray-400">A multi-tenant eCommerce SaaS platform built with Django, PostgreSQL, and Redis. Scalable and SEO-focused.</p>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">Voice Meeting Assistant</h4>
-          <p class="text-gray-400">An AI-powered assistant to summarize and recall meetings using Whisper, Celery, and vector search.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -76,5 +73,41 @@
     © 2025 Mohamed Naser. All rights reserved.
   </footer>
 
+  <!-- Scripts -->
+  <script>
+    const projects = [
+      {
+        title: "AZCare.ai",
+        description: "A healthcare platform that consist of a search engine, AI chat to help patients find the best healthcare providers."
+      },
+      {
+        title: "ECommerce SAAS",
+        description: "A multi-tenant eCommerce SAAS platform built with Django, PostgreSQL and NextJS. Scalable and SEO-focused."
+      },
+      {
+        title: "Pajamy",
+        description: "A voice cloning mobile application allow children to listen to their favorite stories with their parents voices."
+      },
+      {
+        title: "Hike",
+        description: "A money transfer application that allows users to send money to their friends and family with low fees and fast transactions."
+      }
+    ];
+
+    const container = document.querySelector("#projects .grid");
+
+    projects.forEach(project => {
+      const div = document.createElement("div");
+      div.className = "bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition";
+      div.innerHTML = `
+        <h4 class="text-xl font-semibold mb-2">${project.title}</h4>
+        <p class="text-gray-400">${project.description}</p>
+      `;
+      container.appendChild(div);
+    });
+
+  </script>
+
 </body>
+
 </html>
