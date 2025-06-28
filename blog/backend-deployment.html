@@ -73,7 +73,6 @@
         3. Configure the load balancer to route traffic to the Production backend group by default.
         4. Configure the load balancer to route traffic to the Staging backend group if a condition in the request is met (e.g., a specific header or query parameter).
       </p>
-
       <br />
       <h2>Step-by-Step Deployment Process</h2>
       <pre>
@@ -81,15 +80,11 @@
 2. Deploy the new version of the application to the Staging server
 3. Deploy the staging server to the backend group.
 <img src="https://mohamednaser.com/assets/images/production-and-staging-example.png" />
-
 4. Test the staging server to ensure it is functioning correctly.
 5. Remove the machine from the staging backend group.
 6. Add the staging server to the production backend group.
 <img src="https://mohamednaser.com/assets/images/full-production-no-staging.png" />
-
-
 7. Remove the old production server from the production backend group.
-
 <img src="https://mohamednaser.com/assets/images/updated-production.png" />
 </pre>
 
