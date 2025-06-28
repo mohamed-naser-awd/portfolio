@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Post</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <div class="max-w-4xl mx-auto px-4 py-10">
+
+    <!-- Back to Blog Link -->
+    <a href="index.html" class="text-blue-600 hover:underline mb-6 inline-block">&larr; Back to Blog</a>
+
+    <!-- Post Title -->
+    <h1 class="text-4xl font-bold mb-4 leading-tight">
+      Understanding JavaScript Closures
+    </h1>
+
+    <!-- Meta Info -->
+    <p class="text-sm text-gray-500 mb-8">
+      By <span class="font-medium text-gray-700">Mohamed Naser</span> • June 23, 2025
+    </p>
+
+    <!-- Cover Image -->
+    <img src="https://source.unsplash.com/random/1200x600?javascript" alt="Post Image"
+         class="rounded-xl shadow mb-8 w-full h-auto object-cover">
+
+    <!-- Post Content -->
+    <div class="prose prose-lg prose-blue max-w-none">
+      <p>
+        JavaScript closures are a fundamental concept that allows a function to access variables from an enclosing scope, even after that function has returned.
+      </p>
+
+      <h2>What Is a Closure?</h2>
+      <p>
+        A closure is created when a function is defined inside another function, allowing the inner function to remember and access the variables of the outer function's scope.
+      </p>
+
+      <pre><code class="language-js">
+// Example
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    console.log(count);
+  }
+}
+
+const counter = outer();
+counter(); // 1
+counter(); // 2
+      </code></pre>
+
+      <h2>Why Use Closures?</h2>
+      <p>
+        Closures are useful for data encapsulation, creating private variables, and maintaining state in functional programming.
+      </p>
+
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Creating private variables</li>
+        <li>Event handler factories</li>
+        <li>Function factories and currying</li>
+      </ul>
+
+      <p>
+        Understanding closures is key to mastering asynchronous programming, functional patterns, and modular code design in JavaScript.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

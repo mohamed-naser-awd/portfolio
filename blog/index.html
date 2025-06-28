@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <div class="max-w-6xl mx-auto px-4 py-10">
+    <h1 class="text-4xl font-bold mb-8 text-center">Latest Blog Posts</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Blog Card -->
+    </div>
+  </div>
+
+  <script>
+    const data = [
+      {
+        id: "backend-deployment",
+        title: "Backend Deployment Best Practices",
+        description: "A comprehensive guide to deploying backend applications on production with no down time",
+        image: "https://source.unsplash.com/random/800x400?tech",
+        link: "#"
+      },
+      {
+        id: "database-compatibility",
+        title: "Database Backward Compatibility",
+        description: "Learn how to migrate the database without affecting older versions.",
+        image: "https://source.unsplash.com/random/800x400?code",
+        link: "#"
+      },
+      {
+        id: "django-performance",
+        title: "Boost Django Performance",
+        description: "Tips and tricks to optimize your Django applications for better performance.",
+        image: "https://source.unsplash.com/random/800x400?developer",
+        link: "#"
+      }
+    ]
+
+    const container = document.querySelector('.grid');
+
+    data.forEach(post => {
+      container.innerHTML += `
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+        <img src="${post.image}" alt="Blog Cover" class="rounded-t-2xl w-full h-48 object-cover">
+        <div class="p-5">
+          <h2 class="text-xl font-semibold mb-2">${post.title}</h2>
+          <p class="text-sm text-gray-600 mb-4">${post.description}</p>
+          <a href="/blog/${post.id}.html" class="inline-block text-blue-600 font-medium hover:underline">Read More →</a>
+        </div>
+      </div>
+      `
+    })
+
+  </script>
+  
+</body>
+</html>

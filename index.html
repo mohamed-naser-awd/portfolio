@@ -1,136 +1,80 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-black text-green-500 font-mono">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Mohamed Naser - Terminal Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .blinker {
-        animation: blink 1s step-start infinite;
-      }
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Naser | Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
 
-      @keyframes blink {
-        50% {
-          opacity: 0;
-        }
-      }
-    </style>
-  </head>
-  <body class="p-4">
-    <div id="terminal">
-      <div class="mb-4">
-        <p>Welcome to <span class="text-white">mohamednaser.com</span></p>
-        <p>Click a command to begin:</p>
-      </div>
-      
-      <div class="space-y-2">
-        <div class="cursor-pointer hover:text-white" onclick="showSection('about')">&gt; about</div>
-        <div class="cursor-pointer hover:text-white" onclick="showSection('projects')">&gt; projects</div>
-        <div class="cursor-pointer hover:text-white" onclick="showSection('contact')">&gt; contact</div>
-        <div class="cursor-pointer hover:text-white" onclick="showAll()">&gt; show all</div>
-        <div class="cursor-pointer hover:text-white" onclick="clearOutput()">&gt; clear</div>
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-gray-900 shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Mohamed Naser</h1>
+      <nav class="space-x-6">
+        <a href="#about" class="hover:text-blue-400">About</a>
+        <a href="#projects" class="hover:text-blue-400">Projects</a>
+        <a href="#contact" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="h-screen flex items-center justify-center text-center px-4">
+    <div>
+      <h2 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Mohamed 👋</h2>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
+        Software Engineer • Backend Developer • Open Source Enthusiast
+      </p>
+      <div class="mt-6">
+        <a href="#projects" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition">
+          View Projects
+        </a>
       </div>
     </div>
+  </section>
 
-    <div id="output" class="mt-6 space-y-4"></div>
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-6">About Me</h3>
+      <p class="text-gray-300 text-lg">
+        I'm a backend developer with 4+ years of experience in Django, PostgreSQL, and scalable systems. I love building reliable APIs, architecting backend systems, and diving into performance optimization and DevOps workflows.
+      </p>
+    </div>
+  </section>
 
-    <script>
-      const output = document.getElementById('output');
+  <!-- Projects Section -->
+  <section id="projects" class="py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-10">Projects</h3>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">My eCommerce Platform</h4>
+          <p class="text-gray-400">A multi-tenant eCommerce SaaS platform built with Django, PostgreSQL, and Redis. Scalable and SEO-focused.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Voice Meeting Assistant</h4>
+          <p class="text-gray-400">An AI-powered assistant to summarize and recall meetings using Whisper, Celery, and vector search.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      const sections = {
-        about: `
-<span class="text-white">about</span>
-<pre class="text-sm">
-name: Mohamed Naser
-title: Backend Engineer
-description: >
-  I design and build scalable backend systems with a focus on performance, security,
-  and developer experience. I also enjoy crafting interactive frontend prototypes
-  and automating everything from CI to deployment.
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-6">Get in Touch</h3>
+      <p class="text-gray-300 mb-4">Have a project or want to connect? Drop me a message.</p>
+      <a href="mailto:hello@mohamednaser.com" class="text-blue-400 hover:underline text-lg">hello@mohamednaser.com</a>
+    </div>
+  </section>
 
-languages:
-  - Python
-  - JavaScript
-  - TypeScript
-  - Dart
-  - SQL
-  - Bash
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-gray-500 border-t border-gray-700">
+    © 2025 Mohamed Naser. All rights reserved.
+  </footer>
 
-frameworks:
-  - Django
-  - FastAPI
-  - Celery
-  - Flask
-  - React
-  - Flutter
-
-databases:
-  - PostgreSQL
-  - MongoDB
-  - Redis
-  - SQLite
-
-tools:
-  - Docker
-  - Git
-  - NGINX
-  - RabbitMQ
-  - Kafka
-  - Linux
-  - S3
-
-cloud:
-  - AWS
-  - Oracle Cloud
-  - Heroku
-  - Netlify
-
-experience:
-  - company: Freelance / Startup Projects
-    role: Backend Engineer
-    period: 2020 - Present
-    description: >
-      Built multi-tenant eCommerce platforms, AI-powered signal analysis tools,
-      and real-time logging systems with RabbitMQ and Kafka.
-
-education:
-  - degree: Self-Taught
-    focus: Software Engineering & Machine Learning
-    extras: >
-      Strong interest in low-level systems, signal processing,
-      and building drones for defense use cases.
-</pre>
-        `,
-        projects: `
-<span class="text-white">projects</span>
-- monas.com — Multi-tenant e-commerce engine
-- SignalMap — Object detection with Wi-Fi signal modeling
-- DroneDefender — Smart defense system
-        `,
-        contact: `
-<span class="text-white">contact</span>
-Email: me@mohamednaser.com  
-GitHub: github.com/m0nas  
-LinkedIn: linkedin.com/in/mohamednaser
-        `
-      };
-
-      function showSection(name) {
-        output.innerHTML = `
-<div class="whitespace-pre-wrap">${sections[name]}</div>
-        `;
-      }
-
-      function showAll() {
-        output.innerHTML = Object.values(sections).map(
-          text => `<div class="whitespace-pre-wrap">${text}</div>`
-        ).join('');
-      }
-
-      function clearOutput() {
-        output.innerHTML = '';
-      }
-    </script>
-  </body>
+</body>
 </html>
