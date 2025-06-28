@@ -7,6 +7,18 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
+    <header class="sticky top-0 z-50 shadow bg-white">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold">Mohamed Naser</h1>
+        <nav class="space-x-6">
+          <a href="#about" class="hover:text-blue-400">About</a>
+          <a href="#projects" class="hover:text-blue-400">Projects</a>
+          <a href="#contact" class="hover:text-blue-400">Contact</a>
+          <a href="/blog/index.html" class="hover:text-blue-400">Blog</a>
+        </nav>
+      </div>
+    </header>
+
   <div class="max-w-4xl mx-auto px-4 py-10">
 
     <!-- Back to Blog Link -->
@@ -14,7 +26,7 @@
 
     <!-- Post Title -->
     <h1 class="text-4xl font-bold mb-4 leading-tight">
-      Understanding JavaScript Closures
+      Production Deployment: A Comprehensive Guide
     </h1>
 
     <!-- Meta Info -->
@@ -23,52 +35,70 @@
     </p>
 
     <!-- Cover Image -->
-    <img src="https://source.unsplash.com/random/1200x600?javascript" alt="Post Image"
+    <img src="https://mohamednaser.com/assets/images/deployment.png" alt="Post Image"
          class="rounded-xl shadow mb-8 w-full h-auto object-cover">
 
     <!-- Post Content -->
-    <div class="prose prose-lg prose-blue max-w-none">
+    <div class="prose lg:prose-xl">
       <p>
-        JavaScript closures are a fundamental concept that allows a function to access variables from an enclosing scope, even after that function has returned.
+        Deploying a backend application to production is a critical step in the software development lifecycle. It requires careful planning and execution to ensure that the application runs smoothly and efficiently without downtime. In this guide, we will explore best practices for deploying backend applications, focusing on zero-downtime deployment strategies.
       </p>
 
-      <h2>What Is a Closure?</h2>
+      <h2>Understanding Zero-Downtime Deployment</h2>
       <p>
-        A closure is created when a function is defined inside another function, allowing the inner function to remember and access the variables of the outer function's scope.
+        Zero-downtime deployment is a deployment strategy that allows you to update your application without taking it offline. This is crucial for applications that require high availability, as it minimizes the impact on users and ensures a seamless experience.
       </p>
 
-      <pre><code class="language-js">
-// Example
-function outer() {
-  let count = 0;
-  return function inner() {
-    count++;
-    console.log(count);
-  }
-}
-
-const counter = outer();
-counter(); // 1
-counter(); // 2
-      </code></pre>
-
-      <h2>Why Use Closures?</h2>
-      <p>
-        Closures are useful for data encapsulation, creating private variables, and maintaining state in functional programming.
-      </p>
-
-      <h2>Use Cases</h2>
-      <ul>
-        <li>Creating private variables</li>
-        <li>Event handler factories</li>
-        <li>Function factories and currying</li>
+      <br />
+      <h2>Key Strategies for Zero-Downtime Deployment</h2>
+      <ul class="list-disc pl-5">
+        <li>
+            Load Balancing: Use load balancers to distribute traffic across multiple instances of your application.
+        </li>
+        <li>
+            Backend Group: Load balancers distribute load across multiple backend servers, ensuring that no single server is overwhelmed. We need a backend group even if it will mostly contain a single server.
+            In this example we will need two backend groups, one for the current version of the application (Production) and another for the new version (Staging).
+        </li>
+        <li>
+            Pipeline: Implement a deployment pipeline that automates the deployment process, reducing the risk of human error.
+        </li>
       </ul>
 
+      <br />
+      <h2>Prerequisites</h2>
       <p>
-        Understanding closures is key to mastering asynchronous programming, functional patterns, and modular code design in JavaScript.
+        Before we start, ensure you have the following prerequisites in place:
+        1. Two backend groups: one for the current version of the application (Production) and another for the new version (Staging).
+        2. A load balancer to distribute traffic between the backend groups.
+        3. Configure the load balancer to route traffic to the Production backend group by default.
+        4. Configure the load balancer to route traffic to the Staging backend group if a condition in the request is met (e.g., a specific header or query parameter).
+      </p>
+
+      <br />
+      <h2>Step-by-Step Deployment Process</h2>
+      <pre>
+1. Create a new server instance for the new version of the application (Staging).
+2. Deploy the new version of the application to the Staging server
+3. Deploy the staging server to the backend group.
+<img src="https://mohamednaser.com/assets/images/production-and-staging-example.png" />
+
+4. Test the staging server to ensure it is functioning correctly.
+5. Remove the machine from the staging backend group.
+6. Add the staging server to the production backend group.
+<img src="https://mohamednaser.com/assets/images/full-production-no-staging.png" />
+
+
+7. Remove the old production server from the production backend group.
+
+<img src="https://mohamednaser.com/assets/images/updated-production.png" />
+</pre>
+
+      <br />
+      <h2>Conclusion</h2>
+      <p>
+        Deploying backend applications with zero downtime is essential for maintaining high availability and providing a seamless user experience. By following the best practices outlined in this guide, you can ensure that your deployments are smooth and efficient, minimizing the risk of downtime and disruptions.
       </p>
     </div>
 
-  </div>
 </body>
 </html>
